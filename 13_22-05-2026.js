@@ -25,7 +25,11 @@ var romanToInt = function (s) {
     }
   }
 
+  console.log("temp before:", temp);
+
   for (i = temp.length - 1; i > -1; i--) {
+    console.log("putaran ke", i);
+    console.log(temp[i], temp[i - 1]);
     if (temp[i] > temp[i - 1]) {
       temp[i] -= temp[i - 1];
       temp[i - 1] = 0;
@@ -34,31 +38,11 @@ var romanToInt = function (s) {
     result += temp[i];
   }
 
+  console.log("temp after:", temp);
+
   return result;
 };
 
-const roman = "MMXXVI";
+const roman = "MMCDLVII";
 console.log("roman:", roman);
 console.log("result int:", romanToInt(roman));
-
-// === Improved Version ===
-// - Pakai object map untuk lookup O(1)
-// - Satu pass tanpa temp array
-// - Fix implicit global (let i)
-//
-// var romanToIntImproved = function (s) {
-//   const map = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
-//   let result = 0;
-//
-//   for (let i = 0; i < s.length; i++) {
-//     const curr = map[s[i]];
-//     const next = map[s[i + 1]];
-//     if (next > curr) {
-//       result -= curr;
-//     } else {
-//       result += curr;
-//     }
-//   }
-//
-//   return result;
-// };
