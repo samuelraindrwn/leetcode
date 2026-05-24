@@ -1,6 +1,6 @@
-# LeetCode Practice
 
-Repo buat belajar solve algoritma dari LeetCode.
+
+Repo buat belajar solve algoritma dsb
 
 ## Cara Menjalankan Test
 
